@@ -29,6 +29,7 @@
     #)
 
 MESSAGE(STATUS "INFO: Custom installation of FFMPEG selected")
+MESSAGE(STATUS "DIR: " ${CMAKE_SOURCE_DIR})
 
 #if(FFMPEG_LIBRARIES AND FFMPEG_INCLUDE_DIR)
   # in cache already
@@ -43,31 +44,27 @@ MESSAGE(STATUS "INFO: Custom installation of FFMPEG selected")
   #  pkg_check_modules(_FFMPEG_AVUTIL libavutil)
   #endif()
 
-set(FFMPEG_INCLUDE_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/../FFmpeg")
+set(FFMPEG_INCLUDE_DIRS "${CMAKE_SOURCE_DIR}/FFmpeg")
 
 
   find_path(FFMPEG_AVCODEC_INCLUDE_DIR
-    NO_SYSTEM_ENVIRONMENT_PATH
-    NO_CMAKE_ENVIRONMENT_PATH
     NAMES libavcodec/avcodec.h
     PATHS #${_FFMPEG_AVCODEC_INCLUDE_DIRS}
       #/usr/include
       #/usr/local/include
       #/opt/local/include
       #/sw/include
-      ${CMAKE_CURRENT_SOURCE_DIR}/../FFmpeg
+      ${CMAKE_SOURCE_DIR}/FFmpeg
     PATH_SUFFIXES ffmpeg libav)
 
   find_library(FFMPEG_LIBAVCODEC
-    NO_SYSTEM_ENVIRONMENT_PATH
-    NO_CMAKE_ENVIRONMENT_PATH
     NAMES avcodec
     HINTS #${_FFMPEG_AVCODEC_LIBRARY_DIRS}
       #/usr/lib
       #/usr/local/lib
       #/opt/local/lib
       #/sw/lib
-      ${CMAKE_CURRENT_SOURCE_DIR}/../FFmpeg/libavcodec
+      ${CMAKE_SOURCE_DIR}/FFmpeg/libavcodec
 )
 
   find_library(FFMPEG_LIBAVFORMAT
@@ -77,7 +74,7 @@ set(FFMPEG_INCLUDE_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/../FFmpeg")
       #/usr/local/lib
       #/opt/local/lib
       #/sw/lib
-      ${CMAKE_CURRENT_SOURCE_DIR}/../FFmpeg/libavformat)
+      ${CMAKE_SOURCE_DIR}/FFmpeg/libavformat)
 
   find_library(FFMPEG_LIBAVUTIL
     NAMES avutil
@@ -86,7 +83,7 @@ set(FFMPEG_INCLUDE_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/../FFmpeg")
       #/usr/local/lib
       #/opt/local/lib
       #/sw/lib
-      ${CMAKE_CURRENT_SOURCE_DIR}/../FFmpeg/libavutil)
+      ${CMAKE_SOURCE_DIR}/FFmpeg/libavutil)
 
   find_library(FFMPEG_LIBAVDEVICE
     NAMES avdevice
@@ -95,7 +92,7 @@ set(FFMPEG_INCLUDE_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/../FFmpeg")
       #/usr/local/lib
       #/opt/local/lib
       #/sw/lib
-      ${CMAKE_CURRENT_SOURCE_DIR}/../FFmpeg/libavdevice)
+      ${CMAKE_SOURCE_DIR}/FFmpeg/libavdevice)
 
   find_library(FFMPEG_LIBAVFILTER
     NAMES avfilter
@@ -104,7 +101,7 @@ set(FFMPEG_INCLUDE_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/../FFmpeg")
       #/usr/local/lib
       #/opt/local/lib
       #/sw/lib
-      ${CMAKE_CURRENT_SOURCE_DIR}/../FFmpeg/libavfilter)
+      ${CMAKE_SOURCE_DIR}/FFmpeg/libavfilter)
 
   find_library(FFMPEG_LIBAVRESAMPLE
     NAMES avresample
@@ -113,7 +110,7 @@ set(FFMPEG_INCLUDE_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/../FFmpeg")
       #/usr/local/lib
       #/opt/local/lib
       #/sw/lib
-      ${CMAKE_CURRENT_SOURCE_DIR}/../FFmpeg/libavresample)
+      ${CMAKE_SOURCE_DIR}/FFmpeg/libavresample)
 
   find_library(FFMPEG_LIBPOSTPROC
     NAMES postproc
@@ -122,7 +119,7 @@ set(FFMPEG_INCLUDE_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/../FFmpeg")
       #/usr/local/lib
       #/opt/local/lib
       #/sw/lib
-      ${CMAKE_CURRENT_SOURCE_DIR}/../FFmpeg/libpostproc)
+      ${CMAKE_SOURCE_DIR}/FFmpeg/libpostproc)
 
   find_library(FFMPEG_LIBSWRESAMPLE
     NAMES swresample
@@ -131,7 +128,7 @@ set(FFMPEG_INCLUDE_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/../FFmpeg")
       #/usr/local/lib
       #/opt/local/lib
       #/sw/lib
-      ${CMAKE_CURRENT_SOURCE_DIR}/../FFmpeg/libswresample
+      ${CMAKE_SOURCE_DIR}/FFmpeg/libswresample
 )
 
   find_library(FFMPEG_LIBSWSCALE
@@ -141,7 +138,7 @@ set(FFMPEG_INCLUDE_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/../FFmpeg")
       #/usr/local/lib
       #/opt/local/lib
       #/sw/lib
-      ${CMAKE_CURRENT_SOURCE_DIR}/../FFmpeg/libswscale)
+      ${CMAKE_SOURCE_DIR}/FFmpeg/libswscale)
 
   find_library(FFMPEG_LIBZ
     NAMES z)
