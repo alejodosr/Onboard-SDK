@@ -129,10 +129,11 @@ if(ADVANCED_SENSING)
     add_dependencies(${PROJECT_NAME} advanced-sensing)
   endif()
 
-  find_package(FFMPEG REQUIRED)
+  #find_package(FFMPEG REQUIRED)
+  find_package(FFMPEG REQUIRED PATHS ${CMAKE_CURRENT_SOURCE_DIR}/../CMakeModules)
 
   if(FFMPEG_FOUND)
-      message( STATUS "Found FFmpeg ${FFMPEG_VERSION} installed in the system.")
+      message( STATUS "Found FFmpeg ${FFMPEG_VERSION} installed locally.")
       message( STATUS " - Includes: ${FFMPEG_INCLUDE_DIRS}")
       message( STATUS " - Libraries: ${FFMPEG_LIBRARIES}")
   else()
