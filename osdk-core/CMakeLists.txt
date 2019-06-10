@@ -133,7 +133,7 @@ if(ADVANCED_SENSING)
   find_package(FFMPEG REQUIRED PATHS ${CMAKE_SOURCE_DIR}/CMakeModules)
 
   if(FFMPEG_FOUND)
-      message( STATUS "Found FFmpeg ${FFMPEG_VERSION} installed locally.")
+      message( STATUS "Found FFmpeg ${FFMPEG_VERSION} installed in the system.")
       message( STATUS " - Includes: ${FFMPEG_INCLUDE_DIRS}")
       message( STATUS " - Libraries: ${FFMPEG_LIBRARIES}")
   else()
